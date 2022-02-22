@@ -1,33 +1,39 @@
-alfabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+buff = []
+decrypted_message = []
+
+
+def bytterf(user_jump):
+	for i in encrypted_message:
+		buff.append(ord(i) -(96-user_jump))
+	byttert()
+
+
+def byttert():
+	for x, i in enumerate(buff):
+		decrypted_message.append(chr(i + 96))
+
 
 encrypted_message = input("Write inn the encrypted message\n")
-encrypted_message = list(encrypted_message) #The out is converted to an array.
-decrypted_message = encrypted_message
-
-
 user_yey = input("Do you know how many jumps?(Y/N)\n")
+
+
 if user_yey == "y" or user_yey == "Y":
-    user_jump = input("How many jumps?(Write a number)\n")
-   
-    for x, i in enumerate(encrypted_message):
-       for z, e in enumerate(alfabet):
-           if i == alfabet[z]:
-             decrypted_message[x].append(alfabet[e+user_jump]) 
+	user_jump = int(input("How many jumps?(Write a number)\n"))
+	bytterf(user_jump)
 
-    
 
-print(encrypted_message)
-print(decrypted_message)
+for x, i in enumerate(decrypted_message):
+	if i == '!':
+		decrypted_message[x] = chr(32)
 
+        
+print(''.join(decrypted_message))
 
 #gjør om alle bokstaver til tall, legg på antall hopp til tallet, converter tilbake til bokstav.
+#Sette opp som funksjoner for å gjøre ting mer modulært.
 
 #try 
 #if user_yey == Y: 
-    
+	
 #else user_yey == N:
 #    bruteforce
-
-#for x, i in enumerate (encrypted_message):
- #   if i == encrypted_message[x]:
-  #      print("Hello")
