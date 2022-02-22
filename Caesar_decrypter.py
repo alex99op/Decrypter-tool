@@ -1,16 +1,24 @@
+from unittest import skip
+
+
 buff = []
 decrypted_message = []
 
 
-def bytterf(user_jump):
+def convert_from_char(user_jump):
+	"""Converts the decrypted message into ASCII code to easy change the value"""
 	for i in encrypted_message:
-		buff.append(ord(i) -(96-user_jump))
-	byttert()
+		buff.append(ord(i) - (96 - user_jump))
+	convert_to_char()
 
 
-def byttert():
-	for x, i in enumerate(buff):
-		decrypted_message.append(chr(i + 96))
+def convert_to_char():
+	"""Converts ASCII value to letters"""
+	for i in buff:
+		if i != -62: #Hvis jeg plusser inn hoppet her så vil den muligens bli modulær for å få space uansett antall hopp?
+			decrypted_message.append(chr(i + 96))
+		else:
+			decrypted_message.append(chr(32))
 
 
 encrypted_message = input("Write inn the encrypted message\n")
@@ -19,12 +27,12 @@ user_yey = input("Do you know how many jumps?(Y/N)\n")
 
 if user_yey == "y" or user_yey == "Y":
 	user_jump = int(input("How many jumps?(Write a number)\n"))
-	bytterf(user_jump)
+	convert_from_char(user_jump)
 
 
 for x, i in enumerate(decrypted_message):
-	if i == '!':
-		decrypted_message[x] = chr(32)
+		if i == '!':
+			decrypted_message[x] = chr(32)
 
         
 print(''.join(decrypted_message))
