@@ -8,6 +8,7 @@ user_yey = input("Do you know how many jumps?(Y/N)\n")
 if user_yey == "y" or user_yey == "Y":
     user_jump = input("How many jumps?(Write a number)\n")
     print(user_jump)
+    print("end")
     
 
 print(encrypted_message)
