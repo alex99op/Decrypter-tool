@@ -10,9 +10,9 @@ if user_yey == "y" or user_yey == "Y":
     user_jump = input("How many jumps?(Write a number)\n")
    
     for x, i in enumerate(encrypted_message):
-        for z, e in enumerate(alfabet):
+       for z, e in enumerate(alfabet):
            if i == alfabet[z]:
-             decrypted_message[x] = alfabet[e+user_jump] 
+             decrypted_message[x].append(alfabet[e+user_jump]) 
 
     
 
