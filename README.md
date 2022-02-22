@@ -1,4 +1,4 @@
-# Cecar decrypter/encrypter
+# Caesar decrypter/encrypter
 A free Cecar decrypter/encrypter. Just for education use.
 
 Upcomming features:
