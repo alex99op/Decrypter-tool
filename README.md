@@ -8,3 +8,5 @@ Upcomming features:
 - [ ] Encrypter capability.
 - [ ] Visuals improvement.
 - [ ] Better naming of variables and description.
+- [ ] Idiotproofing the code.
+- [ ] Optimalization.
