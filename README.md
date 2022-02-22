@@ -9,3 +9,4 @@ Upcomming features:
 - [ ] Visuals improvement.
 - [ ] Better naming of variables and description.
 - [ ] Idiotproofing the code.
+- [ ] Optimalization.
