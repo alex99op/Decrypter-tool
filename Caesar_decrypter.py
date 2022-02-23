@@ -5,14 +5,8 @@ decrypted_message = []
 def convert_from_char(user_jump):
 	"""Converts the decrypted message into ASCII code to easy change the value"""
 	for i in encrypted_message:
-<<<<<<< HEAD
 		buff.append(ord(i) - (96 - user_jump))
-	convert_to_char()
-=======
-<<<<<<< Updated upstream
-		buff.append(ord(i) -(96-user_jump))
-	byttert()
->>>>>>> Bokstav-til-tall
+	convert_to_char(user_jump)
 
 
 def convert_to_char():
@@ -23,21 +17,14 @@ def convert_to_char():
 		else:
 			decrypted_message.append(chr(32))
 
-=======
-		buff.append(ord(i) - (96 - user_jump))
-	convert_to_char(user_jump)
-
 
 def convert_to_char(user_jump):
 	"""Converts ASCII value to letters"""
 	for i in buff:
-		print(i)
 		if i == (-64+user_jump): #Hvis jeg plusser inn hoppet her så vil den muligens bli modulær for å få space uansett antall hopp?
 			decrypted_message.append(chr(32))
 		else:
 			decrypted_message.append(chr(i + 96))
-   
->>>>>>> Stashed changes
 
 encrypted_message = input("Write inn the encrypted message\n")
 user_yey = input("Do you know how many jumps?(Y/N)\n")
@@ -46,23 +33,6 @@ user_yey = input("Do you know how many jumps?(Y/N)\n")
 if user_yey == "y" or user_yey == "Y":
 	user_jump = int(input("How many jumps?(Write a number)\n"))
 	convert_from_char(user_jump)
-
-"""
-for x, i in enumerate(decrypted_message):
-<<<<<<< HEAD
-		if i == '!':
-			decrypted_message[x] = chr(32)
-=======
-<<<<<<< Updated upstream
-	if i == '!':
-		decrypted_message[x] = chr(32)
->>>>>>> Bokstav-til-tall
-
-=======
-		if i == '!':
-			decrypted_message[x] = chr(32)
-"""
->>>>>>> Stashed changes
         
 print(''.join(decrypted_message))
 
