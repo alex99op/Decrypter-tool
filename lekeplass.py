@@ -1,3 +1,8 @@
+import time
+import os
+
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 def decrypt_menu():
 	print("Simple decrypt will just decrypt with letters, advanced will decypt with letters but also with the use of spesial charackters\n1.Simple\n2.Advanced\n'q' to quit\n")
 	#Legg inn try else for en fin loop.	
@@ -14,7 +19,7 @@ def main_menu():
 	print("2. Encrypt")
 	print("3. Help")
  
-	user_input = input()
+	user_input = input("> ")
 
 	if user_input == "1":
 		#Go to Decrypt file/funksjonen
@@ -32,11 +37,9 @@ def main_menu():
   
 	else:
 		print("Did not understand that, going back to main menu")
-		#sleep 1 sekund
-		#clear screen
+		time.sleep(1)
+		clearConsole()
 		main_menu()
-  
-  
-
+ 
  
 main_menu()
