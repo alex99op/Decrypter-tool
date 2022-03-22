@@ -3,6 +3,7 @@ import os
 
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
+
 def decrypt_menu():
 	print("Simple decrypt will just decrypt with letters, advanced will decypt with letters but also with the use of spesial charackters\n1.Simple\n2.Advanced\n'q' to quit\n")
 	#Legg inn try else for en fin loop.	
@@ -27,8 +28,8 @@ def main_menu():
   
 	elif user_input == "2":
 		#Go to Encrypt file/funksjon
-		print("")
-  
+		import Caesar_encrypter #THis is shitty code, will fix in update.
+		
 	elif user_input == "q" or user_input == "Q":
 		quit()
   

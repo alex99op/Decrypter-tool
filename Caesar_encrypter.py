@@ -32,7 +32,9 @@ def convert_to_char(user_key):
 encrypted_message = input("Write in your message:\n")
 user_key = int(input("What number do you want to set as a key?(Write a positive or negative number)\n"))
 convert_from_char(user_key)
-print(''.join(decrypted_message))      
+print("This is the encrypted message, dont forget your key!\n" +''.join(decrypted_message))
+ 
+#if __name__ == '__main__': # THis is for fixing shitty code in _main.
 
 
 #Gjør om alle bokstaver til tall, legg på antall hopp til tallet, converter tilbake til bokstav. DONE!
