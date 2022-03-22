@@ -1,12 +1,12 @@
 import time
-
+#import Ceasar_main
 buff = []
 decrypted_message = []
 
 
-def convert_from_char(user_key):
+def convert_from_char(plain_message, user_key):
 	"""Converts the decrypted message into ASCII code to easy change the value"""
-	for i in encrypted_message:
+	for i in plain_message:
 		buff.append(ord(i) - (96 - user_key))
 	convert_to_char(user_key)
 
@@ -28,13 +28,14 @@ def convert_to_char(user_key):
 		else:
 			decrypted_message.append(chr(i + 96))
 
-
-encrypted_message = input("Write in your message:\n")
-user_key = int(input("What number do you want to set as a key?(Write a positive or negative number)\n"))
-convert_from_char(user_key)
-print("This is the encrypted message, dont forget your key!\n" +''.join(decrypted_message))
+def main():
+	plain_message = input("Write in your message:\n")
+	user_key = int(input("What number do you want to set as a key?(Write a positive or negative number)\n"))
+	convert_from_char(plain_message, user_key)
+	print("This is the encrypted message, dont forget your key!\n" +''.join(decrypted_message))
  
-#if __name__ == '__main__': # THis is for fixing shitty code in _main.
+if __name__ == '__main__':
+	main()
 
 
 #Gjør om alle bokstaver til tall, legg på antall hopp til tallet, converter tilbake til bokstav. DONE!

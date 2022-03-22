@@ -1,6 +1,6 @@
 import time
 import os
-
+import Caesar_encrypter
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 
@@ -8,10 +8,14 @@ def decrypt_menu():
 	print("Simple decrypt will just decrypt with letters, advanced will decypt with letters but also with the use of spesial charackters\n1.Simple\n2.Advanced\n'q' to quit\n")
 	#Legg inn try else for en fin loop.	
 	user_input = input()
-	
- 
+"""	
+def back():
+    print("Going back")#Trengs kanskje ikke alikavell?
+    clearConsole()
+    main_menu()
+"""    
 def main_menu():
-	""" This is the Main manu where it all starts """
+	""" This is the Main menu where it all starts """
 	print("#######################")
 	print("# Welcome to OFFCRYPT #")
 	print("#######################")
@@ -23,18 +27,17 @@ def main_menu():
 	user_input = input("> ")
 
 	if user_input == "1":
-		#Go to Decrypt file/funksjonen
-		print("")
+		import Decrypter #Also shitty, but works..
+		#Decrypter.main() Use this when the code is ready.
   
 	elif user_input == "2":
-		#Go to Encrypt file/funksjon
-		import Caesar_encrypter #THis is shitty code, will fix in update.
+		Caesar_encrypter.main()
 		
 	elif user_input == "q" or user_input == "Q":
 		quit()
   
 	elif user_input == "3":
-		print("Wiki\n This software is just for learning and nothing else. Written by AWR, free for all open source software.")
+		print("Wiki\n This software is just for learning and nothing else. Written by AWR, free for all open source software.")#Egen 
   
 	else:
 		print("Did not understand that, going back to main menu")

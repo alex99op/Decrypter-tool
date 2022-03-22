@@ -1,7 +1,5 @@
-"""Decrypter_function
-"""
-    
 import time
+from tkinter import W
 
 buff = []
 decrypted_message = []
@@ -55,7 +53,8 @@ elif user_yey == "n" or user_yey == "N": #Bruteforce up to 10 jumps
 else:
 	user_yey = input("I did not understand that, Do you know how many jumps?(Y/N)\n")
 
-
+#if __name__ == '__main__': # Legg inn når koden over er fikset til slik den trenger.
+	#main()
 
 #Gjør om alle bokstaver til tall, legg på antall hopp til tallet, converter tilbake til bokstav. DONE!
 #Sette opp som funksjoner for å gjøre ting mer modulært. Sette opp Velkomstmeny? og som en funksjon så man kan komme tilbake til den.
@@ -67,5 +66,6 @@ else:
 #try 
 #if user_yey == Y: 
 	
-#else user_yey == N:
-#    bruteforce
+#else:
+#	user_yey == N:
+#		bruteforce
