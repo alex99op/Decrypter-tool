@@ -11,4 +11,4 @@ Upcomming features:
 - [ ] Better naming of variables and description.
 - [ ] Idiotproofing the code.
 - [ ] Optimalization.
-- [ ] Spliting up the program to smaller more readable programs.
+- [ ] Spliting up the program to smaller more readable programs. 
