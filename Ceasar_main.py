@@ -26,6 +26,8 @@ def main_menu():
  
 	user_input = input("> ")
 
+	
+	#Endre nedenfor til en switch statment istedenfor? penere, les meg opp først...
 	if user_input == "1":
 		import Decrypter #Also shitty, but works..
 		#Decrypter.main() Use this when the code is ready.
