@@ -1,6 +1,7 @@
 import time
 import os
 import Caesar_encrypter
+import Ceasar_decrypter
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 
@@ -27,11 +28,10 @@ def main_menu():
 	user_input = input("> ")
 
 	if user_input == "1":
-		import Decrypter #Also shitty, but works..
-		#Decrypter.main() Use this when the code is ready.
+		Ceasar_decrypter.decrypt_menu()
   
 	elif user_input == "2":
-		Caesar_encrypter.main()
+		Caesar_encrypter.encrypt_menu()
 		
 	elif user_input == "q" or user_input == "Q":
 		quit()
