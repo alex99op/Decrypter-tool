@@ -1,7 +1,7 @@
 buff = []
 encrypted_message = []
 bit_map = []
-ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 'Æ', 'Ø', 'Å']
 
 
 def bit_map_appender(plain_message):
@@ -45,6 +45,7 @@ def encrypt_menu():
 	bit_map_appender(plain_message)
 	encrypter(plain_message, user_key)
 	print("This is the encrypted message, dont forget your key!\n" +''.join(encrypted_message))
+
 	
 
  
