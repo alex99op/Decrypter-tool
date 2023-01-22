@@ -1,20 +1,9 @@
 import time
 import os
-import Caesar_encrypter
-import Ceasar_decrypter
+import Caesar_encrypter, Ceasar_decrypter
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
-
-def decrypt_menu():
-	print("Simple decrypt will just decrypt with letters, advanced will decypt with letters but also with the use of spesial charackters\n1.Simple\n2.Advanced\n'q' to quit\n")
-	#Legg inn try else for en fin loop.	
-	user_input = input()
-"""	
-def back():
-    print("Going back")#Trengs kanskje ikke alikavell?
-    clearConsole()
-    main_menu()
-"""    
+   
 def main_menu():
 	""" This is the Main menu where it all starts """
 	print("#######################")
@@ -30,6 +19,7 @@ def main_menu():
 	
 	#Endre nedenfor til en switch statment istedenfor? penere, les meg opp først...
 	if user_input == "1":
+		print("\nSimple decrypt will just decrypt with letters, advanced will decypt with letters but also with the use of spesial charackters\n1.Simple\n2.Advanced\n'q' to quit\n")
 		Ceasar_decrypter.decrypt_menu()
   
 	elif user_input == "2":
@@ -39,7 +29,7 @@ def main_menu():
 		quit()
   
 	elif user_input == "3":
-		print("Wiki\n This software is just for learning and nothing else. Written by AWR, free for all open source software.")#Egen 
+		print("Wiki\nThis software is just for learning and nothing else. Written by AWR, free for all open source software.")
   
 	else:
 		print("Did not understand that, going back to main menu")

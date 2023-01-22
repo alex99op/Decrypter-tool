@@ -2,11 +2,13 @@
 
 
 #Skrive om funksjoner til basic og legge tilrette for nordic og advanced keyboard.
-#Fikse y/n stopper i decrypter hvis man taster feil
+#Tall forsvinner, legge til option om å ta hensyn til dette på både decrypter og encrypter.
+#Fikse y/n stopper i decrypter hvis man taster feil?
 #Bruke gammel kode til advanced tastatur?
-#Rydde opp i koden
+#Rydde opp i koden.
 #Bugg test med æøå. 
 #Oppgradere flere funksjoner til one-liners.
+#Ved bruteforce på decrypter: Legge ved en ordliste slik at den med mest treff kommer øverst i listen. med option 
 
 
 
