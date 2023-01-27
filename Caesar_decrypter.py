@@ -69,6 +69,7 @@ def convert_to_char(user_jump):
 '''
 
 def decrypt_menu():
+	print('\nSimple mode will only change the letters, advanced mode will change every letter and spesial characters:\n1. Simple\n2. Advanced\nPress "q" to quit\n')
 	encrypted_message = input("Write inn the encrypted message:\n")
 	user_choise = input("Do you know how many jumps the ciper has?(Y/N)\n")
 	bit_map_appender(encrypted_message)

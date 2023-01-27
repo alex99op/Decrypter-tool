@@ -1,51 +1,35 @@
-import time
-user_jump = 0
+import Caesar_encrypter, Caesar_decrypter
+
+def wiki():
+	print("\nWiki:\nThis software is just for learning and nothing else. Written by AWR, free for all open source software.")
 
 
-ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-
-
-
-def decrypting(encrypted_message, user_jump):
-    buff=[]
-    decrypted_message = []
-    encrypted_message = encrypted_message.upper()
-
-    for i in encrypted_message: #gjør om hver bokstav om til tall som lagres i buff
-        for x, y in enumerate(ALPHABET):
-            if i == y:
-                v = x + user_jump
-                buff.append(v)
-
+def main_menu():
+    """ This is the Main menu where it all starts """
     
-    for i in buff: #Gjør om fra tall til bokstaver og printer ut resultatet
-        for z, c in enumerate(ALPHABET):
-            if z == i:
-                decrypted_message.append(c)
-    print(f"{user_jump}." + ''.join(decrypted_message)) 
+    print("#######################")
+    print("# Welcome to OFFCRYPT #")
+    print("#######################")
+    print('Press "q" to quit\n')
+    print("1. Decrypt")
+    print("2. Encrypt")
+    print("3. Help")
+    
+    user_input = input("> ").lower()
+    sub_menu(user_input)
 
 
-
-
-
-
-
-def decrypt_menu():
-    encrypted_message = input("Write inn the encrypted message:\n")
-    user_choise = "n"
-
-    if user_choise == "n" or user_choise == "N": #Bruteforce up to 12 jumps
-        user_jump = 1
-        print("We will try up to 13 jumps:\n")
-        time.sleep(1)
+def sub_menu(user_input):
+	"Starts the program the user chose"
 	
-        while user_jump < 13:
-            decrypting(encrypted_message, user_jump)
-            user_jump += 1
+	switch = {
+			"1": lambda: Caesar_decrypter.decrypt_menu(),
+			"2": lambda: Caesar_encrypter.encrypt_menu(),
+			"3": lambda: wiki(),
+			"q": lambda: quit(),
+			}
+	
+	return switch[user_input]() if user_input in switch else print("Did not understand that")
 
-    else:
-        user_choise = input("I did not understand that, Do you know how many jumps?(Y/N)\n")
-        decrypt_menu()
 
-
-decrypt_menu()
+main_menu()
