@@ -39,7 +39,7 @@ def to_char():
 	bit_map_resolver(encrypted_message)
 
 
-def encrypt_menu():
+def main_menu():
 	plain_message = input("Write in your message:\n")
 	user_key = int(input("What number do you want to set as a key?(Write a positive or negative number)\n"))
 	bit_map_appender(plain_message)
@@ -50,4 +50,4 @@ def encrypt_menu():
 
  
 if __name__ == '__main__':
-	encrypt_menu()
+	main_menu()

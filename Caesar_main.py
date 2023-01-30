@@ -1,7 +1,7 @@
-import time
-import os
-import Caesar_encrypter, Caesar_decrypter
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+#import time
+#import os
+import Encrypter, Decrypter
+#clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 
 def wiki():
@@ -26,8 +26,8 @@ def sub_menu(user_input):
 	"Starts the program the user chose"
 	
 	switch = {
-			"1": lambda: Caesar_decrypter.decrypt_menu(),
-			"2": lambda: Caesar_encrypter.encrypt_menu(),
+			"1": lambda: Decrypter.main_menu(),
+			"2": lambda: Encrypter.main_menu(),
 			"3": lambda: wiki(),
 			"q": lambda: quit(),
 			}

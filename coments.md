@@ -1,9 +1,13 @@
 
 
+#Kan jeg skrive om all simple kode til å følge advanced fordel? Finn ut range på ascii for bokstaver og bitmap på space/evt bare lagre alle 32.
+#Ved omgjøring til advanced metoden så kan vi potensielt fjerne mange linjer.
+
 
 #Skrive om funksjoner til basic og legge til options for advanced keyboard.
 #Legge til advanced keyboard.
 #Tall forsvinner, legge inn failsafe så de forblir der de skal være.
+#>Decrypter er ett lappeteppe nå, påtide med orden i rekkene!
 #Per nå ingen IQ failsafe, taster du feil stopper alt...
 #Bruke gammel kode til advanced tastatur?
 #Rydde opp i koden, decrypter og encrypter.
@@ -18,6 +22,7 @@
 #Gjør om alle bokstaver til tall, legg på antall hopp til tallet, converter tilbake til bokstav.
 #Lag en (advanced)options meny, der man kan endre lengde på bruteforce, "Debuggmode" for at clear screen ikke skal skje for å gjøre det lettere å finne feil osv.
 #Legge inn cls på decrypter og encrypter?
+#Legge inn try for bedre failsafe på programmet.
 
 
 #try 
