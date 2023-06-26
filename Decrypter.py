@@ -1,7 +1,8 @@
 decrypted_message = []
 bit_map = []
-ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 'Æ', 'Ø', 'Å']
+ALPHABET = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 'Æ', 'Ø', 'Å'}
 
+'''
 def bit_map_appender(encrypted_message):
 	for i in encrypted_message:
 		if i == " ":
@@ -12,81 +13,81 @@ def bit_map_appender(encrypted_message):
 
 def bit_map_resolver(decrypted_message):
 	for x, y in enumerate(decrypted_message):
-		if bit_map[x] == 0:
-			pass
-		else:
+		if bit_map[x] == 1:
 			decrypted_message.insert(x," ")
+'''
 
+def simple_mode():
+	print("\nSimple mode:")	
+	encrypted_message = input("Write inn the encrypted message:\n>")
+	user_choise = input("Do you know how many jumps the ciper has?(Y/N)\n> ")
+	#bit_map_appender(encrypted_message)
 
-def decrypting(encrypted_message, user_jump):
-	buff=[]
-	decrypted_message = []
-	encrypted_message = encrypted_message.upper()
+	if  user_choise.lower()=="y":
+		user_jump = int(input("How many jumps?(Write a number)\n> "))
+		decrypt(encrypted_message, user_jump)
 
-	for i in encrypted_message: #Gjør om hver bokstav om til tall som lagres i buff
-		for x, y in enumerate(ALPHABET):
-			if i == y:
-				v = x - user_jump
-				if v < 0:
-					v = v + 26
-				buff.append(v)
-
-    
-	for i in buff: #Gjør om fra tall til bokstaver og printer ut resultatet
-		for z, c in enumerate(ALPHABET):
-			if z == i:
-				decrypted_message.append(c)
-	bit_map_resolver(decrypted_message)
-	print(f"Trying with {user_jump} rotation: " + ''.join(decrypted_message))
-
-
-def advanced_decrypt(encrypted_message, user_jump):
-	for character in encrypted_message:
-		if ord(character) == 32:
-			decrypted_message.append(ord(character))
-		else:
-			decrypted_message.append(ord(character)+user_jump)
-
-	for character in decrypted_message:
-		print(chr(character), end="")
-
-
-def main_menu():
-	print('\nSimple mode will only change the letters, advanced mode will change every letter and spesial characters:\n1. Simple\n2. Advanced\nPress "q" to quit\n')
-	advanced_choice = input("> ")
-	if advanced_choice == "1":
-		print("\nSimple mode:")
-	elif advanced_choice == "2":
-		print("\nAdvanced mode:\n1. Decrypt message\n2. Options \n> ")
-	elif advanced_choice == "q" or advanced_choice == "Q":
-		quit()
-
-	encrypted_message = input("Write inn the encrypted message:\n")
-	bit_map_appender(encrypted_message)
-	user_choise = input("Do you know how many jumps the ciper has?(Y/N)\n")
-
-	if  user_choise == "Y" or user_choise =="y":
-		user_jump = int(input("How many jumps?(Write a number)\n"))
-		if advanced_choice == "1":
-			decrypting(encrypted_message, user_jump)
-		else:
-			advanced_decrypt(encrypted_message, user_jump)
-
-	elif user_choise == "n" or user_choise == "N": #Bruteforce up to 12 jumps
-		user_jump = 1
+	elif user_choise.lower() == "n": #Bruteforce up to 12 jumps
 		brute = 13
 		print("We will try up to 13 jumps:\n")
-	
-		while user_jump < brute:
-			decrypting(encrypted_message, user_jump)
-			user_jump += 1
-
+		for user_jump in range(1, brute):
+			decrypt(encrypted_message, user_jump)
 	else:
-		user_choise = input("I did not understand that, Do you know how many jumps?(Y/N)\n")
+		print("I did not understand that\n>")
 		main_menu()
 
 
 
+def advanced_mode():
+	print("\nAdvanced mode:")
+	print("1. Run with standard values")
+	print("2. Options")
+	print("q. Quit")
+	advanced_option = input("> ")
+
+	options = {
+		'1': lambda: None,
+		'2': lambda: print("#########\n1. Change bruteforce number\n2. Limit ASCII range\n3. Ignore spacebar#########"),#Få ut som egen funksjon
+		'q': quit,
+	}
+	options.get(advanced_option, quit)()
+
+
+	encrypted_message = input("Write inn the encrypted message:\n")
+	user_choise = input("Do you know how many jumps the ciper has?(Y/N)\n")
+
+	if  user_choise.lower() == "y":
+		user_jump = int(input("How many jumps?(Write a number)\n> "))
+		decrypt(encrypted_message, user_jump)
+
+	elif user_choise.lower() == "n": #Bruteforce up to 12 jumps
+		brute = 13
+		print("We will try up to 13 jumps:\n")
+		for user_jump in range(1, brute):
+			decrypt(encrypted_message, user_jump)
+			
+	else:
+		print("I did not understand that\n> ")
+		advanced_mode()
+
+
+def decrypt(encrypted_message: str, user_jump: int) -> str:#Denne tar ikke hensyn til mellomrom
+	decrypted_message = ''.join(chr((ord(c) - user_jump) % 256) for c in encrypted_message) #c = character
+	print(f"{user_jump}. {decrypted_message}")
+
+
+def main_menu():
+	print("1. Simple mode")
+	print("2. Advanced mode")
+	print("q. Quit")	
+	user_input = input("> ")
+	
+	switch = {
+				"1": lambda: simple_mode(),
+				"2": lambda: advanced_mode(),
+				"q": lambda: quit(),
+				}
+	return switch[user_input]() if user_input in switch else print("Did not understand that")
 
 
 if __name__ == '__main__': # Legg inn når koden over er fikset til slik den trenger.
