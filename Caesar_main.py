@@ -23,7 +23,7 @@ def main_menu():
 
 
 def sub_menu(user_input):
-	"Starts the program the user chose"
+	"Starts the program the user choice"
 	
 	switch = {
 			"1": lambda: Decrypter.main_menu(),

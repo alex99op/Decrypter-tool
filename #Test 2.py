@@ -1,7 +1,7 @@
 decrypted_message = []
 bit_map = []
 ALPHABET = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 'Æ', 'Ø', 'Å'}
-
+brute = 13
 '''
 def bit_map_appender(encrypted_message):
 	for i in encrypted_message:
@@ -36,6 +36,16 @@ def simple_mode():
 		print("I did not understand that\n>")
 		main_menu()
 
+def test():
+	brute = int(input("How many jumps you want?\n> "))
+	return brute
+
+
+def advanced_mode_options():
+	print("1. Change brutforce number from standar 13")
+	print("2. Limit ASCII range")
+	print("3. Ignore spacebar")
+	return None
 
 
 def advanced_mode():
@@ -46,22 +56,22 @@ def advanced_mode():
 	advanced_option = input("> ")
 
 	options = {
-		'1': lambda: None,
-		'2': lambda: print("#########\n1. Change bruteforce number\n2. Limit ASCII range\n3. Ignore spacebar#########"),#Få ut som egen funksjon
-		'q': quit,
+		"1": lambda: None,
+		"2": lambda: None, #advanced_mode_options(),
+		"3": lambda: None,
+		"q": quit,
 	}
 	options.get(advanced_option, quit)()
 
-
-	encrypted_message = input("Write inn the encrypted message:\n")
-	user_choise = input("Do you know how many jumps the ciper has?(Y/N)\n")
+	brute = test()#DENNE BURDE VÆRE INNI options PÅ EN ELLER ANNEN MÅTE
+	encrypted_message = input("Write inn the encrypted message:\n> ")
+	user_choise = input("Do you know how many jumps the ciper has?(Y/N)\n> ")
 
 	if  user_choise.lower() == "y":
 		user_jump = int(input("How many jumps?(Write a number)\n> "))
 		decrypt(encrypted_message, user_jump)
 
 	elif user_choise.lower() == "n": #Bruteforce up to 12 jumps
-		brute = 13
 		print("We will try up to 13 jumps:\n")
 		for user_jump in range(1, brute):
 			decrypt(encrypted_message, user_jump)
