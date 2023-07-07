@@ -19,8 +19,8 @@
 
 
 #Redusere antall fuksjoner ved bruk av return på slutten av hver funksjon?
-#Gjør om alle bokstaver til tall, legg på antall hopp til tallet, converter tilbake til bokstav.
-#Lag en (advanced)options meny, der man kan endre lengde på bruteforce, "Debuggmode" for at clear screen ikke skal skje for å gjøre det lettere å finne feil osv.
+#(Forbedret)Gjør om alle bokstaver til tall, legg på antall hopp til tallet, converter tilbake til bokstav.
+#(Done)options meny, der man kan endre lengde på bruteforce, "Debuggmode" for at clear screen ikke skal skje for å gjøre det lettere å finne feil osv.
 #Legge inn cls på decrypter og encrypter?
 #Legge inn try for bedre failsafe på programmet.
 
