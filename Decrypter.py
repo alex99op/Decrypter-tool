@@ -16,6 +16,9 @@ def bit_map_resolver(decrypted_message):
 		if bit_map[x] == 1:
 			decrypted_message.insert(x," ")
 '''
+def terminal_input():
+	pass
+
 
 def simple_mode():
 	print("\nSimple mode:")	
@@ -79,13 +82,15 @@ def decrypt(encrypted_message: str, user_jump: int):#Denne tar ikke hensyn til m
 def main_menu():
 	print()
 	print("1. Simple mode")
-	print("2. Advanced mode")
+	print("2. Decrypt from ssh")
+	print("3. Advanced mode")
 	print("q. Quit")	
 	user_input = input("> ")
 	
 	switch = {
 				"1": lambda: simple_mode(),
-				"2": lambda: advanced_mode(),
+				"2": lambda: terminal_input(),
+				"3": lambda: advanced_mode(),
 				"q": lambda: quit(),
 				}
 	return switch[user_input]() if user_input in switch else print("Did not understand that")
