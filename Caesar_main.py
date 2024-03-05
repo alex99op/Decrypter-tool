@@ -5,11 +5,11 @@ import Encrypter, Decrypter
 
 
 def wiki():
-	print("\nWiki:\nThis software is just for learning and nothing else. Written by AWR, free for all open source software.")
+	print("\nWiki:\nThis software is just for learning and nothing else. Written by AWR, free for all.")
 
    
 def main_menu():
-	""" This is the Main menu where it all starts """
+	""" This shows the main menu """
 	print("#######################")
 	print("# Welcome to OFFCRYPT #")
 	print("#######################")
@@ -24,7 +24,6 @@ def main_menu():
 
 def sub_menu(user_input):
 	"Starts the program the user choice"
-	
 	switch = {
 			"1": lambda: Decrypter.main_menu(),
 			"2": lambda: Encrypter.main_menu(),

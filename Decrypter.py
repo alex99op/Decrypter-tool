@@ -2,7 +2,7 @@ decrypted_message = []
 bit_map = []
 ALPHABET = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 'Æ', 'Ø', 'Å'}
 
-'''
+
 def bit_map_appender(encrypted_message):
 	for i in encrypted_message:
 		if i == " ":
@@ -15,10 +15,14 @@ def bit_map_resolver(decrypted_message):
 	for x, y in enumerate(decrypted_message):
 		if bit_map[x] == 1:
 			decrypted_message.insert(x," ")
-'''
+
 def terminal_input():
 	pass
 
+#simple_decrypt må bli skrevet om til å ikke akseptere ascii. Bruke kanskje encrypter metoden?
+def simple_decrypt(encrypted_message: str, user_jump: int):#Denne tar ikke hensyn til mellomrom
+	decrypted_message = ''.join(chr((ord(c) - user_jump) % 256) for c in encrypted_message) #c = character
+	return decrypted_message
 
 def simple_mode():
 	print("\nSimple mode:")	
@@ -28,13 +32,34 @@ def simple_mode():
 
 	if  user_choise.lower()=="y":
 		user_jump = int(input("How many jumps?(Write a number)\n> "))
-		decrypt(encrypted_message, user_jump)
+		decrypted_message = simple_decrypt(encrypted_message, user_jump)
+		aski_fixer = []
+		for i in decrypted_message:
+			aski_fixer.append(i)
+			if i == "\x1e":
+				aski_fixer.pop()
+				aski_fixer.append(" ")
+		for i in aski_fixer: print(i, end= "")
 
+  
 	elif user_choise.lower() == "n": #Bruteforce up to 12 jumps
 		brute = 13
+		tall = 0
 		print("We will try up to 13 jumps:\n")
 		for user_jump in range(1, brute):
-			decrypt(encrypted_message, user_jump)
+			tall += 1
+			decrypted_message = simple_decrypt(encrypted_message, user_jump)
+			aski_fixer = []
+			for i in decrypted_message:
+				aski_fixer.append(i)
+				if i == "\x1e":
+					aski_fixer.pop()
+					aski_fixer.append(" ")
+			if tall <= 9: print(f"{tall}. ", end= "")
+			else: print(f"{tall}.", end= "")
+			for i in aski_fixer: print(f"{i}", end= "")
+			print()
+   
 	else:
 		print("I did not understand that\n>")
 		main_menu()
@@ -61,20 +86,20 @@ def advanced_mode():
 
 	if  user_choise.lower() == "y":
 		user_jump = int(input("How many jumps?(Write a number)\n> "))
-		decrypt(encrypted_message, user_jump)
+		advanced_decrypt(encrypted_message, user_jump)
 
 	elif user_choise.lower() == "n": #Bruteforce up to 12 jumps
 		brute = 13
 		print("We will try up to 13 jumps:\n")
 		for user_jump in range(1, brute):
-			decrypt(encrypted_message, user_jump)
+			advanced_decrypt(encrypted_message, user_jump)
 			
 	else:
 		print("I did not understand that\n> ")
 		advanced_mode()
 
 
-def decrypt(encrypted_message: str, user_jump: int):#Denne tar ikke hensyn til mellomrom
+def advanced_decrypt(encrypted_message: str, user_jump: int):#Denne tar ikke hensyn til mellomrom  #Kan jo kanskje putte inn bitmap før og etter første linje her?? 
 	decrypted_message = ''.join(chr((ord(c) - user_jump) % 256) for c in encrypted_message) #c = character
 	print(f"{user_jump}. {decrypted_message}")
 
