@@ -6,7 +6,6 @@
 
 #Skrive om funksjoner til basic og legge til options for advanced keyboard.
 #Legge til advanced keyboard.
-#Tall forsvinner, legge inn failsafe så de forblir der de skal være.
 #>Decrypter er ett lappeteppe nå, påtide med orden i rekkene!
 #Per nå ingen IQ failsafe, taster du feil stopper alt...
 #Bruke gammel kode til advanced tastatur?
@@ -24,6 +23,7 @@
 #Legge inn cls på decrypter og encrypter?
 #Legge inn try for bedre failsafe på programmet.
 
+#store key tall fjerner tall fra plaintext # se test.py kommentarer
 
 #try 
 #if user_key == Y: 

@@ -1,7 +1,8 @@
+ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 'Æ', 'Ø', 'Å']
+NUMBERS = ['0','1','2','3','4','5','6','7','8','9']
 buff = []
 encrypted_message = []
 bit_map = []
-ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 'Æ', 'Ø', 'Å']
 
 
 def bit_map_appender(plain_message):
@@ -28,6 +29,11 @@ def encrypter(plain_message, userkey):
 			if i == y:
 				placeholder = (x + userkey) % 26
 				buff.append(placeholder)
+		
+		for x, y in enumerate(NUMBERS):
+			if i == y:
+				placeholder = int(i) + userkey
+				buff.append(str(placeholder))
 	to_char()
 
 
@@ -35,7 +41,11 @@ def to_char():
 	for i in buff:
 		for x, y in enumerate(ALPHABET):
 			if i == x:
-				encrypted_message.append(y.lower())
+				encrypted_message.append(y.lower()) 
+		
+		for x, y in enumerate(NUMBERS):
+			if i == y:
+				encrypted_message.append(i)
 	bit_map_resolver(encrypted_message)
 
 
